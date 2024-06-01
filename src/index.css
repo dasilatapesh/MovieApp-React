@@ -1,13 +1,187 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(to bottom,rgb(164, 15, 15),30%,rgb(47, 47, 47));
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-attachment: fixed;
+  color: white;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.main {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  /* border: 2px solid white; */
 }
+
+.movie-card {
+  background: #332d2d;
+  padding: 0;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 80px -20px, rgba(255, 255, 255, 0.3) 0px 0px 50px -30px, rgba(255, 255, 255, 0.35) 0px -2px 6px 0px inset;
+  display: flex;
+  transition: transform 0.2s ease;
+}
+
+.movie-card:hover{
+  transform: scale(1.009);
+}
+
+.movie-card .left {
+  flex: 1;
+  padding: 5px
+}
+
+.movie-card .left img {
+  height: 250px;
+  padding: 5px;
+}
+
+.movie-card .right {
+  position: relative;
+  flex: 10;
+}
+
+.movie-card .title {
+  padding: 10px 10px;
+  font-size: 25px;
+  font-weight: 600;
+  color:rgb(164, 15, 15)
+}
+.movie-card .plot {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+.movie-card .price {
+  margin-top: 20px;
+  padding: 0 10px;
+  font-weight: 500;
+  /* color: rgb(0, 75, 0) */
+}
+
+.price span{
+  color: greenyellow;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  
+  width: 100%;
+  padding: 10px 10px;
+  box-sizing: border-box;
+  /* border: 2px solid white; */
+}
+
+.footer .rating {
+  font-size: 20px;
+  font-weight: 600;
+  flex:1;
+  /* border: 2px solid white; */
+  /* padding-left: 0px; */
+}
+
+.rating span{
+  color: rgb(175, 175, 23);
+}
+
+.footer .stars{
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+}
+
+.footer .star-dis {
+  font-size: 20px;
+  font-weight: 600;
+  flex:1;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  position: relative;
+}
+
+.footer .star-dis .starCount{
+  margin-left: 20px;
+  font-size: 1.6rem;
+  color: rgb(208, 176, 72)
+}
+
+footer.starCount {
+  font-size: 20px;
+  font-weight: 600;
+  position:absolute;
+  left: 50;
+}
+
+.footer .str-btn {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+.str-btn:hover{
+  cursor: pointer;
+}
+
+.footer button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  padding: 5px 10px;
+  text-shadow: none;
+  border-radius: 3px;
+  border: none;
+  font-weight: 600;
+  margin-right: 10px;
+  transition: transform 0.2s;
+}
+
+.cart-btn{
+  border: none;
+  background-color: rgb(168, 103, 184);
+  color: white;
+}
+
+.remove-cart-btn{
+  border: none;
+  background-color: rgb(164,15,15);
+  color: white;
+}
+
+.favourite-btn{
+  border: none;
+  background-color: rgb(168, 103, 184);
+  color: white;
+  width: 130px;
+}
+
+.un-favourite-btn{
+  border: none;
+  background-color: rgb(164,15,15);
+  color: white;
+  width: 130px;
+}
+
+button:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+ .cart-icon{
+  width: 25px;
+  height: 25px;
+  margin-right: 10px;
+ }
