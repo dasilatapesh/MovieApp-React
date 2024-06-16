@@ -58,7 +58,7 @@ class MovieCard extends Component {
         // const {movies} = this.props; //we can change name also alias of movies name
         const {movies: data} = this.props;
         // console.log(this.props);
-        const {title,plot,price,rating,stars,fav,isInCart} = data;
+        const {title,plot,price,rating,stars,fav,isInCart,poster} = data;
         return (
             <>
             <div className = "main">
@@ -66,7 +66,7 @@ class MovieCard extends Component {
                 <div className="movie-card">
 
                     <div className="left">
-                        <img src="https://www.vintagemovieposters.co.uk/wp-content/uploads/2023/03/IMG_1887-scaled.jpeg" alt="Movie Poster" />
+                        <img src={poster} alt="Movie Poster" />
                     </div>
 
 
