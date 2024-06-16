@@ -2,22 +2,6 @@ import { Component } from "react";
 
 class MovieCard extends Component {
 
-    constructor(){
-        super();
-
-        this.state = {
-            title: "The Avengers",
-            plot: "Supernatural power used in this movie.",
-            price: 199,
-            rating: 8.9,
-            stars: 0,
-            fav: false,
-            isInCart: false
-        };
-
-        this.addStars = this.addStars.bind(this); //binding in advanced
-    }
-
     addStars = () => { //binding using arrow function
         // console.log(this);
         // this.state.stars+=0.5;
@@ -69,7 +53,14 @@ class MovieCard extends Component {
     }
 
     render(){
+
+        // const {title,plot,price,rating,stars,fav,isInCart} = this.props; //this.state
+        // const {movies} = this.props; //we can change name also alias of movies name
+        const {movies: data} = this.props;
+        // console.log(this.props);
+        const {title,plot,price,rating,stars,fav,isInCart} = data;
         return (
+            <>
             <div className = "main">
 
                 <div className="movie-card">
@@ -80,11 +71,11 @@ class MovieCard extends Component {
 
 
                     <div className="right">
-                        <div className="title">Title: {this.state.title}</div>
-                        <div className="plot">Plot: {this.state.plot}</div>
-                        <div className="price">Price: <span>Rs. {this.state.price}</span></div>
+                        <div className="title">Title: {title}</div>
+                        <div className="plot">Plot: {plot}</div>
+                        <div className="price">Price: <span>Rs. {price}</span></div>
                         <div className="footer">
-                            <div className="rating">IMDB Rating: <span>{this.state.rating}</span></div>
+                            <div className="rating">IMDB Rating: <span>{rating}</span></div>
                             <div className="star-dis">
                                     <img src="https://cdn-icons-png.flaticon.com/128/16282/16282055.png" 
                                     alt="decrease" 
@@ -100,7 +91,7 @@ class MovieCard extends Component {
                                     onClick={this.addStars} 
                                     // onclick = {this.addStars.bind(this)} binding manually when craeting reference
                                     />
-                                    <span className="starCount">{this.state.stars}</span>
+                                    <span className="starCount">{stars}</span>
                             </div>
 
                             {/* {this.state.fav?  //conditional rendering for fav
@@ -109,15 +100,15 @@ class MovieCard extends Component {
                             <button className="favourite-btn" onClick={this.handleFav}><img src="https://cdn-icons-png.flaticon.com/128/6648/6648209.png" alt="cart" className="cart-icon"/><span>Favourite</span></button>
                             } */}
                             {/* we can use condition rendering in single */}
-                            <button className={this.state.fav? "un-favourite-btn":"favourite-btn"} onClick={this.handleFav}>
-                                <img src={this.state.fav? "https://cdn-icons-png.flaticon.com/128/5866/5866462.png":"https://cdn-icons-png.flaticon.com/128/6648/6648209.png"}  alt="cart" className="cart-icon"/>
-                                <span>{this.state.fav? "Unfavourite":"Favourite"}</span>
+                            <button className={fav? "un-favourite-btn":"favourite-btn"} onClick={this.handleFav}>
+                                <img src={fav? "https://cdn-icons-png.flaticon.com/128/5866/5866462.png":"https://cdn-icons-png.flaticon.com/128/6648/6648209.png"}  alt="cart" className="cart-icon"/>
+                                <span>{fav? "Unfavourite":"Favourite"}</span>
                             </button>
 
 
-                            <button className={this.state.isInCart? "remove-cart-btn":"cart-btn"} onClick={this.handleCart}>
-                                <img src={this.state.isInCart?"https://cdn-icons-png.flaticon.com/128/4379/4379564.png":"https://cdn-icons-png.flaticon.com/128/4379/4379542.png"} alt="cart" className="cart-icon"/>
-                                <span>{this.state.isInCart?"Remove from Cart": "Add to Cart"}</span>
+                            <button className={isInCart? "remove-cart-btn":"cart-btn"} onClick={this.handleCart}>
+                                <img src={isInCart?"https://cdn-icons-png.flaticon.com/128/4379/4379564.png":"https://cdn-icons-png.flaticon.com/128/4379/4379542.png"} alt="cart" className="cart-icon"/>
+                                <span>{isInCart?"Remove from Cart": "Add to Cart"}</span>
                             </button>
                         </div>
                     </div>
@@ -125,6 +116,7 @@ class MovieCard extends Component {
                 </div>
 
             </div>
+            </>
         );
     }
 }
