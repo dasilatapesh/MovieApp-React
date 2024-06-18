@@ -1,4 +1,4 @@
-![Screenshot](https://github.com/dasilatapesh/MovieApp-React/tree/master/public/image.png)
+![Screenshot](https://github.com/dasilatapesh/MovieApp-React/blob/master/public/image.png)
 
 # Getting Started with Create React App
 
