@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-class MovieCard extends Component {
+function MovieCard(props) {
 
     /* addStars = () => { //binding using arrow function
         // console.log(this);
@@ -52,11 +52,9 @@ class MovieCard extends Component {
         });
     } */
 
-    render(){
-
         // const {title,plot,price,rating,stars,fav,isInCart} = this.props; //this.state
         // const {movies} = this.props; //we can change name also alias of movies name
-        const {movies: data,addStars,removeStars,handleFav,handleCart} = this.props;
+        const {movies: data,addStars,removeStars,toggleFav,toggleCart} = props;
         // console.log(this.props);
         const {title,plot,price,rating,stars,fav,isInCart,poster} = data;
         return (
@@ -102,13 +100,13 @@ class MovieCard extends Component {
                             <button className="favourite-btn" onClick={this.handleFav}><img src="https://cdn-icons-png.flaticon.com/128/6648/6648209.png" alt="cart" className="cart-icon"/><span>Favourite</span></button>
                             } */}
                             {/* we can use condition rendering in single */}
-                            <button className={fav? "un-favourite-btn":"favourite-btn"} onClick={()=>handleFav(data)}>
+                            <button className={fav? "un-favourite-btn":"favourite-btn"} onClick={()=>toggleFav(data)}>
                                 <img src={fav? "https://cdn-icons-png.flaticon.com/128/5866/5866462.png":"https://cdn-icons-png.flaticon.com/128/6648/6648209.png"}  alt="cart" className="cart-icon"/>
                                 <span>{fav? "Unfavourite":"Favourite"}</span>
                             </button>
 
 
-                            <button className={isInCart? "remove-cart-btn":"cart-btn"} onClick={()=>handleCart(data)}>
+                            <button className={isInCart? "remove-cart-btn":"cart-btn"} onClick={()=>toggleCart(data)}>
                                 <img src={isInCart?"https://cdn-icons-png.flaticon.com/128/4379/4379564.png":"https://cdn-icons-png.flaticon.com/128/4379/4379542.png"} alt="cart" className="cart-icon"/>
                                 <span>{isInCart?"Remove from Cart": "Add to Cart"}</span>
                             </button>
@@ -120,7 +118,6 @@ class MovieCard extends Component {
             </div>
             </>
         );
-    }
 }
 
 export default MovieCard;

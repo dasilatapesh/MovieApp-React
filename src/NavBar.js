@@ -5,11 +5,14 @@ import styled from "styled-components";
  const Nav = styled.div`
         width: 100%;
         height: 70px;
-        background-color: rgb(47, 47, 47);
+        background: linear-gradient(to right, rgb(47, 47, 47),50%,rgb(164, 15, 15)); 
         display: flex;
         align-items: center;
         justify-content:space-between;
-        position: relative;
+        position: fixed; /* Changed from relative to fixed */
+        top: 0; /* Ensures the navbar sticks to the top */
+        left: 0; /* Ensures the navbar sticks to the left */
+        z-index: 1000; /* Ensures the navbar is above other content */
  `;
 
  const Title = styled.div`
@@ -25,7 +28,7 @@ import styled from "styled-components";
  const CartCount = styled.div`
         background: ${(props) => props.color};
         border-radius: 50%;
-        color: white;
+        color: black;
         padding: 1px 7px;
         position: absolute;
         top: -7px;  
@@ -35,24 +38,37 @@ import styled from "styled-components";
         visibility: ${(props) => (props.show?"visible":"hidden")}
  `;
 
-class NavBar extends Component {
+ const CartContainer = styled.div`
+        position: relative;
+        cursor: pointer;
+        margin-right:40px;
+ `
 
-    render(){
+ const Icon = styled.img`
+        height: 48px;
+        width: 40px;
+ `
+
+function NavBar(props) {
+
+
+        const {cartCount} = props;
         return (
             <>
                 <Nav>
                 {/* <div className="nav" style={style.nav}> */}
                     <Title>Movie-App</Title>
                     {/* <div className="title" style={style.title}>Movie-App</div> */}
-                    <div className="navCart" style={style.cartContainer}>
-                        <img src="https://cdn-icons-png.flaticon.com/128/891/891462.png" alt="Cart Icon" style={style.icon}/>
-                        <CartCount color="red" show={true}>3</CartCount>
+                    <CartContainer>
+                    {/* <div className="navCart" style={style.cartContainer}> */}
+                        <Icon src="https://cdn-icons-png.flaticon.com/128/891/891462.png" alt="Cart Icon"/>
+                        {/* <img src="https://cdn-icons-png.flaticon.com/128/891/891462.png" alt="Cart Icon" style={style.icon}/> */}
+                        <CartCount color="yellow" show={true}>{cartCount}</CartCount>
                         {/* <span style={style.cartCount}>0</span> */}
-                    </div>
+                    </CartContainer>
                 </Nav>
             </>
         );
-    }
 }
 
 export default NavBar;
